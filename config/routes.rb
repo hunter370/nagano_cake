@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  scope module: :public do
+    #URLにはpublicを消したいのでpublicのルートはこの中に記述する
+    root to: "homes#top"
+  end
+  namespace :admin do
+    root to: "homes#top"
+  end
   devise_for :admin, controllers: {
   sessions:      'admin/sessions',
   passwords:     'admin/passwords',
