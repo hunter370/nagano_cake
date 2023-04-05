@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   scope module: :public do
-    #URLにはpublicを消したいのでpublicのルートはこの中に記述する
+    #URLはpublicを消したいのでpublicのルートはこの中に記述する
     root to: "homes#top"
+    get '/about' => 'homes#about', as: 'about'
   end
   namespace :admin do
     root to: "homes#top"
