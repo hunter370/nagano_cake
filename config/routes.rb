@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get 'customers/information/edit/:id' => 'customers#edit', as: 'customers/edit'
     # current_customer実装後に:idを削除する
     get 'customers/unsubscribe'
+    patch 'customers/information/:id' => 'customers#update', as: 'customers/update'
   end
   namespace :admin do
     root to: "homes#top"
