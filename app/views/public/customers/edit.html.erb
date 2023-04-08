@@ -1,6 +1,6 @@
 <h1>会員情報編集</h1>
 
-<%= form_with model: @customer, url: customers_update_path(@customer.id), method: :patch do |f| %>
+<%= form_with model: @customer, url: customers_update_path, method: :patch do |f| %>
   
   <div class="field">
     <%= f.label :last_name, "(姓)" %>
@@ -45,4 +45,6 @@
   <div class="actions">
     <%= f.submit "編集内容を保存" %>
   </div>
+  
+  <!--退会するボタンを追加-->
 <% end %>

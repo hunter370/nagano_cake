@@ -4,12 +4,12 @@ Rails.application.routes.draw do
     #URLはpublicを消したいのでpublicのルートはこの中に記述する
     root to: "homes#top"
     get '/about' => 'homes#about', as: 'about'
-    get 'customers/my_page/:id' => 'customers#show', as: 'customers/show'
+    get 'customers/my_page' => 'customers#show', as: 'customers/show'
     # current_customer実装後に:idを削除する
-    get 'customers/information/edit/:id' => 'customers#edit', as: 'customers/edit'
+    get 'customers/information/edit' => 'customers#edit', as: 'customers/edit'
     # current_customer実装後に:idを削除する
     get 'customers/unsubscribe'
-    patch 'customers/information/:id' => 'customers#update', as: 'customers/update'
+    patch 'customers/information' => 'customers#update', as: 'customers/update'
   end
   namespace :admin do
     root to: "homes#top"
