@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     # current_customer実装後に:idを削除する
     get 'customers/unsubscribe'
     patch 'customers/information' => 'customers#update', as: 'customers/update'
+    patch 'customers/withdrawal' => 'customers#withdrawal', as: 'customers/withdrawal'
   end
   namespace :admin do
     root to: "homes#top"
