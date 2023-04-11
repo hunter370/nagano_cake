@@ -9,7 +9,7 @@
 </h4>
 
 <!--退会しないボタンを追加-マイページへ遷移-->
-<%= link_to "退会しない", customers_show_path %>
+<%= link_to "退会しない", customers_show_path, class: "btn btn-primary" %>
 
 <!--退会するボタンを追加-退会処理を実行-->
-<%= link_to "退会する", customers_withdraw_path, method: :patch %>
+<%= link_to "退会する", customers_withdraw_path, method: :patch, class: "btn btn-danger" %>
