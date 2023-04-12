@@ -2,15 +2,16 @@ Rails.application.routes.draw do
  
   scope module: :public do
     #URLはpublicを消したいのでpublicのルートはこの中に記述する
+    #'指定したいURL' => 'コントローラー名#アクション名', as: 'ルートパス'
     root to: "homes#top"
     get '/about' => 'homes#about', as: 'about'
     get 'customers/my_page' => 'customers#show', as: 'customers/show'
-    # current_customer実装後に:idを削除する
     get 'customers/information/edit' => 'customers#edit', as: 'customers/edit'
-    # current_customer実装後に:idを削除する
     get 'customers/unsubscribe'
     patch 'customers/information' => 'customers#update', as: 'customers/update'
     patch 'customers/withdraw' => 'customers#withdraw', as: 'customers/withdraw'
+    get 'addresses' => 'addresses#index', as: 'addresses/index'
+    get 'addresses/:id/edit' => 'addresses#edit', as: 'addresses/edit'
   end
   namespace :admin do
     root to: "homes#top"
