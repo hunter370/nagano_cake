@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     patch 'customers/information' => 'customers#update', as: 'customers/update'
     patch 'customers/withdraw' => 'customers#withdraw', as: 'customers/withdraw'
     get 'addresses' => 'addresses#index', as: 'addresses/index'
+    post 'addresses' => 'addresses#create',as: 'addresses'
     get 'addresses/:id/edit' => 'addresses#edit', as: 'addresses/edit'
   end
   namespace :admin do

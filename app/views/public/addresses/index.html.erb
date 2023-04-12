@@ -1,5 +1,6 @@
 <h1>配送先登録/一覧</h1>
 
+<!--配送先登録-->
 <%= form_with model: @address do |f| %>
 <h4>郵便番号(ハイフンなし)</h4>
  <%= f.text_field :postal_code %>
@@ -10,6 +11,24 @@
 <h4>宛名</h4>
  <%= f.text_field :name %>
  
- <%= f.submit '新規登録' %>
+ <%= f.submit '新規登録', class: "btn btn-success" %>
 
 <% end %>
+
+<!--配送先一覧-->
+<table border="1" style="border-collapse: collapse">
+ <% @addresses.each do |address| %>
+ <tr>
+  <th>郵便番号</th>
+  <th>住所</th>
+  <th>宛名</th>
+  <th></th>
+ </tr>
+ <tr>
+  <td><%= address.postal_code %></td>
+  <td><%= address.address %></td>
+  <td><%= address.name %></td>
+  <td></td>
+ </tr>
+ <% end %>
+</table>

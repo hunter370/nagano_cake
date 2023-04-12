@@ -6,11 +6,14 @@ class Public::AddressesController < ApplicationController
   
   def create
    @address = Address.new(address_params)
-   @address.save
+   @address.customer_id = current_customer.id
+   @address.save!
    redirect_to addresses_index_path
   end  
   
   def index
+    @address = Address.new
+    @addresses = Address.all
   end
   
   def edit
