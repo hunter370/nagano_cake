@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "homes#top"
     resources :genres, only: [:create, :index, :edit, :update]
+    resources :items, only: [:create, :index, :new, :show, :edit]
   end
   devise_for :admin, controllers: {
   sessions:      'admin/sessions',
