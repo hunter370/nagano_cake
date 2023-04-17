@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     post 'addresses' => 'addresses#create',as: 'addresses'
     get 'addresses/:id/edit' => 'addresses#edit', as: 'addresses/edit'
     patch 'addresses/:id' => 'addresses#update', as: 'addresses/update'
+    get '/items' => 'items#index', as: 'items/index'
+    get 'items/:id' => 'items#show', as: 'items/show'
   end
   namespace :admin do
     root to: "homes#top"
