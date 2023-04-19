@@ -1,2 +1,9 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<h1>商品詳細(仮)</h1>
+
+<%= image_tag @item.get_image(200,200) %>
+
+<h2><%= @item.name %></h2>
+
+<h3><%= @item.introduction %></h3>
+
+<h3>¥<%= @item.add_tax_price.to_s(:dalimited) %></h3>(税込)

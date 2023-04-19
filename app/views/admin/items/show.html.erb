@@ -1,7 +1,7 @@
 <h1>商品詳細</h1>
 
 <!--商品画像-->
-<%= image_tag @item.get_image(100,100) %>
+<%= image_tag @item.get_image(200,200) %>
 
 <p>商品名</p>
 <%= @item.name %>
@@ -12,7 +12,8 @@
 <p>ジャンル</p>
 <%= @item.genre.name %>
 
-<!--<p>税込価格(税抜価格)</p>-->
+<p>税込価格(税抜価格)</p>
+<%= @item.add_tax_price.to_s(:dalimited) %>(<%= @item.price %>)円
 
 <%= link_to '編集する', edit_admin_item_path, class: "btn btn-success" %>
 
