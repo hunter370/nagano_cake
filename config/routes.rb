@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     patch 'addresses/:id' => 'addresses#update', as: 'addresses/update'
     get '/items' => 'items#index', as: 'items/index'
     get 'items/:id' => 'items#show', as: 'items/show'
+    resources :cart_items, only: [:create, :index, :update]
   end
   namespace :admin do
     root to: "homes#top"

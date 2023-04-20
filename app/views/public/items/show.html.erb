@@ -7,3 +7,9 @@
 <h3><%= @item.introduction %></h3>
 
 <h3>¥<%= @item.add_tax_price.to_s(:dalimited) %></h3>(税込)
+
+<%= form_with model: @cart_item do |f| %>
+ <%= f.hidden_field :item_id %>
+ <%= f.select :amount, *[1..10], include_blank: "個数選択" %>
+ <%= f.submit 'カートに入れる', class: "btn btn-success" %>
+<% end %>
