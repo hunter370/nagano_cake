@@ -10,12 +10,8 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe'
     patch 'customers/information' => 'customers#update', as: 'customers/update'
     patch 'customers/withdraw' => 'customers#withdraw', as: 'customers/withdraw'
-    get 'addresses' => 'addresses#index', as: 'addresses/index'
-    post 'addresses' => 'addresses#create',as: 'addresses'
-    get 'addresses/:id/edit' => 'addresses#edit', as: 'addresses/edit'
-    patch 'addresses/:id' => 'addresses#update', as: 'addresses/update'
-    get '/items' => 'items#index', as: 'items/index'
-    get 'items/:id' => 'items#show', as: 'items/show'
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    resources :items, only: [:index, :show]
     resources :cart_items, only: [:create, :index, :update]
   end
   namespace :admin do
