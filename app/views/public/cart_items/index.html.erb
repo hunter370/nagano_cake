@@ -1,2 +1,29 @@
 <h1>ショッピングカート</h1>
 
+<table border="1" style="border-collapse: collapse">
+  <tbody>
+    <% @cart_items.each do |cart_items| %>
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td><%= image_tag cart_items.item.get_image(100,100) %><%= cart_items.item.name %></td>
+      <td><%= (cart_items.item.add_tax_price).to_s(:delimited) %></td>
+      <td>
+        <%= form_with model: @cart_item do |f| %>
+         <%= f.select :amount, *[1..10] %>
+         <%= f.submit "変更", class: "btn btn-success" %>
+        <% end %>
+      </td>
+      <td>
+        <% subtotal = (cart_items.item.add_tax_price*cart_items.amount).to_s(:delimited) %>
+        <%= subtotal %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

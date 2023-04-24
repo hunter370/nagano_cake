@@ -6,7 +6,7 @@
 
 <h3><%= @item.introduction %></h3>
 
-<h3>¥<%= @item.add_tax_price.to_s(:dalimited) %></h3>(税込)
+<h3>¥<%= @item.add_tax_price.to_s(:delimited) %></h3>(税込)
 
 <%= form_with model: @cart_item do |f| %>
  <%= f.hidden_field :item_id, :value => @item.id %>
