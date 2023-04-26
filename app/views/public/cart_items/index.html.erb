@@ -19,10 +19,8 @@
          <%= f.submit "変更", class: "btn btn-success" %>
         <% end %>
       </td>
-      <td>
-        <% subtotal = (cart_items.item.add_tax_price*cart_items.amount).to_s(:delimited) %>
-        <%= subtotal %>
-      </td>
+      <td><%= cart_items.subtotal.to_s(:delimited) %></td>
+      <td><%= </td>
     </tr>
     <% end %>
   </tbody>
