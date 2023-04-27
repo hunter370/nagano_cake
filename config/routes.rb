@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     patch 'customers/withdraw' => 'customers#withdraw', as: 'customers/withdraw'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index, :show]
-    resources :cart_items, only: [:create, :index, :update]
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'cart_item/destroy_all'
+    resources :cart_items, only: [:create, :index, :update, :destroy]
   end
   namespace :admin do
     root to: "homes#top"
