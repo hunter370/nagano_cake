@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'cart_item/destroy_all'
     resources :cart_items, only: [:create, :index, :update, :destroy]
     get 'orders/complete' => 'orders#complete', as: 'orders/complete'
-    post 'orders/comfirm' => 'oeders#comfirm', as: 'orders/confirm'
-    resources :orders, only: [:new, :index, :show]
+    post 'orders/confirm' => 'orders#confirm', as: 'orders/confirm'
+    resources :orders, only: [:new, :index, :show, :create]
   end
   namespace :admin do
     root to: "homes#top"
