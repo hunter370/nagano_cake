@@ -29,15 +29,28 @@ class Public::OrdersController < ApplicationController
       @order = Order.new(order_params)
       @order.customer_id = current_customer.id
       @order.postage = 800
-      @order.save!
-      redirect_to orders_complete_path
+      if @order.save!
+        #   cart_items.each do |cart|
+            #   order_detail = OrderDetail.new
+            #   order_detail.item_id = cart.item_id
+            #   order_detail.order_id = @order.id
+            #   order_detail.quantity = cart.amount
+            #   order_detail.price = @billing_amount
+            #   order_detail.save!
+        #   end
+    #   redirect_to orders_complete_path
+    #   cart_items.destroy_all
+      else
+    #   @order = Order.new(order.params)
+    #   render :new
+      end
   end
 
   def complete
   end
 
   def index
-      @orders = Order.all
+      @orders = current_customer.orders.includes(:order_details, :items)
   end
 
   def show

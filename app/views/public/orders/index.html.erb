@@ -17,7 +17,11 @@
         <%= orders.address %></br>
         <%= orders.name %>
         </th>
-        <!--<th>商品名</th>-->
+        <th>
+          <% orders.items.each do |item| %>
+          <p><%= item.name %></p>
+          <% end %>
+          </th>
         <th><%= orders.billing_amount.to_s(:delimited) %></th>
     </tr>
     <% end %>
