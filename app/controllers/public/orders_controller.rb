@@ -26,6 +26,11 @@ class Public::OrdersController < ApplicationController
   end
   
   def create
+      @order = Order.new(order_params)
+      @order.customer_id = current_customer.id
+      @order.postage = 800
+      @order.save!
+      redirect_to orders_complete_path
   end
 
   def complete
@@ -38,6 +43,6 @@ class Public::OrdersController < ApplicationController
   end
   
   def order_params
-   params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+   params.require(:order).permit(:payment_method, :postal_code, :address, :name, :customer_id, :postage, :billing_amount)
   end
 end
