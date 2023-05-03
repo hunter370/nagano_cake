@@ -1,8 +1,9 @@
 <h4>注文情報確認</h4>
 
+
 <table border="1" style="border-collapse: collapse">
+  <% @cart_items.each do |cart_items| %>
   <tbody>
-    <% @cart_items.each do |cart_items| %>
     <tr>
       <th>商品名</th>
       <th>単価(税込)</th>
@@ -15,12 +16,14 @@
       <td><%= cart_items.amount %></td>
       <td><%= cart_items.subtotal.to_s(:delimited) %></td>
     </tr>
+    <% @total += cart_items.subtotal %>
   </tbody>
+  <% end %>
 </table>
 
 <table border="1" style="border-collapse: collapse">
   <tbody>
-    <% @total += cart_items.subtotal %>
+    
     <% @billing_amount = @total + @postage %>
     <tr>
       <td>送料</td>
@@ -36,7 +39,7 @@
     </tr>
   </tbody>
 </table>
-    <% end %>
+
     
 <h4>支払方法</h4>
 <%= @order.payment_method_i18n %>

@@ -33,12 +33,12 @@
 <table border="1" style="border-collapse: collapse">
   <tbody>
     <% @cart_items.each do |cart_items| %>
-    <% @total += cart_items.subtotal %>
+    <% @total = @total + cart_items.subtotal %>
+    <% end %>
     <tr>
       <td>合計金額</td>
       <td><%= @total.to_s(:delimited) %></td>
     </tr>
-    <% end %>
   </tbody>
 </table>
 
