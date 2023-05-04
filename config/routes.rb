@@ -23,14 +23,11 @@ Rails.application.routes.draw do
     resources :genres, only: [:create, :index, :edit, :update]
     resources :items, only: [:create, :index, :new, :show, :edit, :update]
   end
-  devise_for :admin, controllers: {
-  sessions:      'admin/sessions',
-  passwords:     'admin/passwords',
-  registrations: 'admin/registrations'
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
+  sessions:      'admin/sessions'
 }
-devise_for :customers, controllers: {
+devise_for :customers,skip: [:passwords], controllers: {
   sessions:      'public/sessions',
-  passwords:     'public/passwords',
   registrations: 'public/registrations'
 }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
