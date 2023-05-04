@@ -39,8 +39,9 @@ class Public::OrdersController < ApplicationController
                order_detail.price = cart.item.price
                order_detail.save
            end
-       redirect_to orders_complete_path
        cart_items.destroy_all
+       redirect_to orders_complete_path
+       
       else
        @order = Order.new(order.params)
        render :new
@@ -55,7 +56,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    # @order = current_customer.orders.find(params[:id])
+   @order = current_customer.orders.find(params[:id])
+   @postage = 800
+   @total = 0
+   @order_details = @order.order_details
   end
 
   def order_params
