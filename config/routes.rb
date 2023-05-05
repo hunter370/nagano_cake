@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
     resources :genres, only: [:create, :index, :edit, :update]
     resources :items, only: [:create, :index, :new, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
   end
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
   sessions:      'admin/sessions'
