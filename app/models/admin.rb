@@ -4,5 +4,11 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  has_many :orders
+ def add_tax_price
+   (self.price * 1.10).floor
+ end
+  
+ def subtotal
+      item.add_tax_price*amount
+ end
 end
