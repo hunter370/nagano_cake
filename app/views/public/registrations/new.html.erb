@@ -1,4 +1,7 @@
-<h2>新規会員登録</h2>
+<main>
+  <p>
+    <span class="bg-secondary">新規会員登録</span>
+  </p>
 
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
@@ -63,3 +66,4 @@
 
 既に登録済みの方</br>
 <%= render "public/shared/links" %>からログインしてください。
+</main>
