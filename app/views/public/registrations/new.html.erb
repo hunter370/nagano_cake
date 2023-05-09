@@ -1,6 +1,6 @@
 <main>
   <div class="container">
-<span class="bg-light">新規会員登録</span>
+<h3 class="bg-light mb-5 col-md-3 text-center">新規会員登録</h3>
 
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
@@ -31,48 +31,59 @@
   </div>
 
   <div class="row">
-  <label class="col-md-2"></label>
   <div class="form-group col-md-4">
     <%= f.label :email, "メールアドレス" %>
     <%= f.email_field :email, autocomplete: "email" %>
   </div>
   </div>
   
-  <div class="field">
+  <div class="row">
+  <div class="form-group col-md-5">
     <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
     <%= f.text_field :postal_code %>
   </div>
+  </div>
   
-  <div class="field">
+  <div class="row">
+  <div class="form-group col-md-5">
     <%= f.label :address, "住所" %>
     <%= f.text_field :address %>
   </div>
+  </div>
   
-  <div class="field">
+  <div class="row">
+  <div class="form-group col-md-5">
     <%= f.label :telephone_number, "電話番号(ハイフンなし)" %>
     <%= f.text_field :telephone_number %>
   </div>
+  </div>
 
-  <div class="field">
+  <div class="row">
+  <div class="form-group col-md-5">
     <%= f.label :password, "パスワード" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br />
+    <% end %>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "パスワード(確認用)" %><br />
+  <div class="row">
+  <div class="form-group col-md-5">
+    <%= f.label :password_confirmation, "パスワード(確認用)" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
   </div>
   </form>
 
-  <div class="actions">
+  <div class="row">
+  <div class="actions mb-5">
     <%= f.submit "新規登録", class: "btn btn-success" %>
+  </div>
   </div>
 <% end %>
 
-既に登録済みの方</br>
-<%= render "public/shared/links" %>からログインしてください。
+<h4 class="bg-light col-md-3 text-center">既に登録済みの方</h4>
+<p><%= render "public/shared/links" %>からログインしてください。</p>
 </div>
 </main>
