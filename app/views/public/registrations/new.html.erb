@@ -1,34 +1,41 @@
 <main>
-  <p>
-    <span class="bg-secondary">新規会員登録</span>
-  </p>
+  <div class="container">
+<span class="bg-light">新規会員登録</span>
 
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
   
-  <div class="field">
+  <div class="row">
+  <form>
+    <label class="col-md-2">名前</label>
+  <div class="form-group col-md-4">
     <%= f.label :last_name, "(姓)" %>
     <%= f.text_field :last_name, autofocus: true %>
   </div>
-  
-  <div class="field">
+  <div class="form-group col-md-4">
     <%= f.label :first_name, "(名)" %>
     <%= f.text_field :first_name %>
   </div>
+  </div>
   
-  <div class="field">
+  <div class="row">
+  <label class="col-md-2">フリガナ</label>
+  <div class="form-group col-md-4">
     <%= f.label :last_name_kana, "(セイ)" %>
     <%= f.text_field :last_name_kana %>
   </div>
-  
-  <div class="field">
+  <div class="form-group col-md-4">
     <%= f.label :first_name_kana, "(メイ)" %>
     <%= f.text_field :first_name_kana %>
   </div>
+  </div>
 
-  <div class="field">
+  <div class="row">
+  <label class="col-md-2"></label>
+  <div class="form-group col-md-4">
     <%= f.label :email, "メールアドレス" %>
     <%= f.email_field :email, autocomplete: "email" %>
+  </div>
   </div>
   
   <div class="field">
@@ -58,6 +65,7 @@
     <%= f.label :password_confirmation, "パスワード(確認用)" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  </form>
 
   <div class="actions">
     <%= f.submit "新規登録", class: "btn btn-success" %>
@@ -66,4 +74,5 @@
 
 既に登録済みの方</br>
 <%= render "public/shared/links" %>からログインしてください。
+</div>
 </main>
