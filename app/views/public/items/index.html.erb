@@ -1,15 +1,23 @@
-<h1>商品一覧(全<%= @items.count %>件)</h1>
-
-<% @items.each do |item| %>
-
-<%= link_to item_path(item.id) do %>
- <%= image_tag item.get_image(100,100) %>
-<% end %>
-
-<%= item.name %>
-
-¥<%= item.price %>
-
-<% end %>
-
-<%= paginate @items %>
+<main>
+  <div class="container">
+   <h1>商品一覧(全<%= @items.count %>件)</h1>
+   <div class="row">
+    <% @items.each do |item| %>
+     <div class="mr-5">
+      <%= link_to item_path(item.id) do %>
+       <%= image_tag item.get_image(200,200) %>
+      <% end %>
+     <span class="text-left d-block">
+      <%= item.name %>
+     </span>
+     <span class="text-left d-block">
+      ¥<%= item.price %>
+     </span>
+     </div>
+    <% end %>
+   </div>
+    <p class="text-center">
+     <%= paginate @items %>
+    </p>
+  </div>
+</main>

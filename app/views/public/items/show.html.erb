@@ -1,15 +1,35 @@
-<h1>商品詳細</h1>
+<main>
+ <div class="container">
+  <div class="row">
+   <div class="col-md-6">
+    <%= image_tag @item.get_image(300,300) %>
+   </div>
+   <div class="col-md-6">
+    <div class="mb-5">
+     <h2><%= @item.name %></h2>
+     <h3><%= @item.introduction %></h3>
+    </div>
+    <div class="mb-3">
+     <div class="row align-items-end">
+      <h3 class="col-md-2">
+       ¥<%= @item.add_tax_price.to_s(:delimited) %>
+      </h3>
+      <h6 class="col-md-4">(税込)</h6>
+     </div>
+    </div>
+    <div class="row align-items-center">
+     <div class="col-md-3">
+      <%= form_with model: @cart_item do |f| %>
+      <%= f.hidden_field :item_id, :value => @item.id %>
+      <%= f.select :amount, *[1..10], include_blank: "個数選択" %>
+     </div>
+     <div class="col-md-3">
+      <%= f.submit 'カートに入れる', class: "btn btn-success" %>
+      <% end %>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</main>
 
-<%= image_tag @item.get_image(200,200) %>
-
-<h2><%= @item.name %></h2>
-
-<h3><%= @item.introduction %></h3>
-
-<h3>¥<%= @item.add_tax_price.to_s(:delimited) %></h3>(税込)
-
-<%= form_with model: @cart_item do |f| %>
- <%= f.hidden_field :item_id, :value => @item.id %>
- <%= f.select :amount, *[1..10], include_blank: "個数選択" %>
- <%= f.submit 'カートに入れる', class: "btn btn-success" %>
-<% end %>
