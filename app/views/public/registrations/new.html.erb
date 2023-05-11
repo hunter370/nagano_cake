@@ -4,10 +4,10 @@
 
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
-  
+
   <div class="row">
   <form>
-    <label class="col-md-2">名前</label>
+    <label class="col-md-3">名前</label>
   <div class="form-group col-md-4">
     <%= f.label :last_name, "(姓)" %>
     <%= f.text_field :last_name, autofocus: true %>
@@ -17,9 +17,9 @@
     <%= f.text_field :first_name %>
   </div>
   </div>
-  
+
   <div class="row">
-  <label class="col-md-2">フリガナ</label>
+  <label class="col-md-3">フリガナ</label>
   <div class="form-group col-md-4">
     <%= f.label :last_name_kana, "(セイ)" %>
     <%= f.text_field :last_name_kana %>
@@ -31,59 +31,59 @@
   </div>
 
   <div class="row">
-  <div class="form-group col-md-4">
-    <%= f.label :email, "メールアドレス" %>
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-  </div>
-  
-  <div class="row">
-  <div class="form-group col-md-5">
-    <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
-    <%= f.text_field :postal_code %>
-  </div>
-  </div>
-  
-  <div class="row">
-  <div class="form-group col-md-5">
-    <%= f.label :address, "住所" %>
-    <%= f.text_field :address %>
-  </div>
-  </div>
-  
-  <div class="row">
-  <div class="form-group col-md-5">
-    <%= f.label :telephone_number, "電話番号(ハイフンなし)" %>
-    <%= f.text_field :telephone_number %>
-  </div>
+    <%= f.label :email, "メールアドレス", class:"col-md-3" %>
+    <div class="form-group col-md-4">
+      <%= f.email_field :email, autocomplete: "email", class:"offset-md-1" %>
+    </div>
   </div>
 
   <div class="row">
-  <div class="form-group col-md-5">
-    <%= f.label :password, "パスワード" %>
+    <%= f.label :postal_code, "郵便番号(ハイフンなし)", class:"col-md-3" %>
+    <div class="form-group col-md-4">
+      <%= f.text_field :postal_code, class:"offset-md-1" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= f.label :address, "住所", class:"col-md-3" %>
+    <div class="form-group col-md-7">
+      <%= f.text_field :address, class:"offset-md-1 col-md-12" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= f.label :telephone_number, "電話番号(ハイフンなし)", class:"col-md-3" %>
+    <div class="form-group col-md-4">
+      <%= f.text_field :telephone_number, class:"offset-md-1" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= f.label :password, "パスワード", class:"col-md-3" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %>
+  <div class="form-group col-md-5">
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
   </div>
 
   <div class="row">
+    <%= f.label :password_confirmation, "パスワード(確認用)", class:"col-md-3" %>
   <div class="form-group col-md-5">
-    <%= f.label :password_confirmation, "パスワード(確認用)" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"offset-md-1" %>
   </div>
   </div>
   </form>
 
   <div class="row">
-  <div class="actions mb-5">
-    <%= f.submit "新規登録", class: "btn btn-success" %>
+  <div class="actions col-md-4 offset-md-3 mb-5">
+    <%= f.submit "新規登録", class: "btn btn-success col-md-8 offset-md-1" %>
   </div>
   </div>
 <% end %>
 
 <h4 class="bg-light col-md-3 text-center">既に登録済みの方</h4>
-<p><%= render "public/shared/links" %>からログインしてください。</p>
+<p class="offset-md-1"><%= render "public/shared/links" %>からログインしてください。</p>
 </div>
 </main>
