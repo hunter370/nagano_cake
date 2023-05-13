@@ -21,10 +21,14 @@
      <div class="col-md-3">
       <%= form_with model: @cart_item do |f| %>
       <%= f.hidden_field :item_id, :value => @item.id %>
-      <%= f.select :amount, *[1..10], include_blank: "個数選択" %>
-     </div>
-     <div class="col-md-3">
-      <%= f.submit 'カートに入れる', class: "btn btn-success" %>
+      <table>
+       <tbody>
+        <tr>
+         <td><%= f.select :amount, *[1..10], include_blank: "個数選択" %></td>
+         <td><%= f.submit 'カートに入れる', class: "btn btn-success" %></td>
+        </tr>
+       </tbody>
+      </table>
       <% end %>
      </div>
     </div>

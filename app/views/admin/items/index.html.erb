@@ -18,10 +18,12 @@
          <%= item.name %>
         <% end %>
       </td>
-      <td><%= item.price %></td>
+      <td><%= item.price.to_s(:delimited) %></td>
       <td><%= item.genre.name %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to "新規登録", new_admin_item_path, class: "btn btn-success" %>
 <%= paginate @items %>

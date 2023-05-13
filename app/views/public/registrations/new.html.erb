@@ -4,86 +4,63 @@
 
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
-
-  <div class="row">
-  <form>
-    <label class="col-md-3">名前</label>
-  <div class="form-group col-md-4">
-    <%= f.label :last_name, "(姓)" %>
-    <%= f.text_field :last_name, autofocus: true %>
-  </div>
-  <div class="form-group col-md-4">
-    <%= f.label :first_name, "(名)" %>
-    <%= f.text_field :first_name %>
-  </div>
-  </div>
-
-  <div class="row">
-  <label class="col-md-3">フリガナ</label>
-  <div class="form-group col-md-4">
-    <%= f.label :last_name_kana, "(セイ)" %>
-    <%= f.text_field :last_name_kana %>
-  </div>
-  <div class="form-group col-md-4">
-    <%= f.label :first_name_kana, "(メイ)" %>
-    <%= f.text_field :first_name_kana %>
-  </div>
-  </div>
-
-  <div class="row">
-    <%= f.label :email, "メールアドレス", class:"col-md-3" %>
-    <div class="form-group col-md-4">
-      <%= f.email_field :email, autocomplete: "email", class:"offset-md-1" %>
-    </div>
-  </div>
-
-  <div class="row">
-    <%= f.label :postal_code, "郵便番号(ハイフンなし)", class:"col-md-3" %>
-    <div class="form-group col-md-4">
-      <%= f.text_field :postal_code, class:"offset-md-1" %>
-    </div>
-  </div>
-
-  <div class="row">
-    <%= f.label :address, "住所", class:"col-md-3" %>
-    <div class="form-group col-md-7">
-      <%= f.text_field :address, class:"offset-md-1 col-md-12" %>
-    </div>
-  </div>
-
-  <div class="row">
-    <%= f.label :telephone_number, "電話番号(ハイフンなし)", class:"col-md-3" %>
-    <div class="form-group col-md-4">
-      <%= f.text_field :telephone_number, class:"offset-md-1" %>
-    </div>
-  </div>
-
-  <div class="row">
-    <%= f.label :password, "パスワード", class:"col-md-3" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %>
-  <div class="form-group col-md-5">
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-  </div>
-
-  <div class="row">
-    <%= f.label :password_confirmation, "パスワード(確認用)", class:"col-md-3" %>
-  <div class="form-group col-md-5">
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"offset-md-1" %>
-  </div>
-  </div>
-  </form>
-
-  <div class="row">
-  <div class="actions col-md-4 offset-md-3 mb-5">
-    <%= f.submit "新規登録", class: "btn btn-success col-md-8 offset-md-1" %>
-  </div>
-  </div>
+ <table>
+   <thead>
+     <th></th>
+     <th></th>
+     <th></th>
+   </thead>
+   <tbody>
+     <tr>
+       <td>名前</td>
+       <td><%= f.label :last_name, "(姓)" %><%= f.text_field :last_name, autofocus: true %></td>
+       <td><%= f.label :first_name, "(名)" %><%= f.text_field :first_name %></td>
+     </tr>
+     <tr>
+       <td>フリガナ</td>
+       <td><%= f.label :last_name_kana, "(セイ)" %><%= f.text_field :last_name_kana %></td>
+       <td><%= f.label :first_name_kana, "(メイ)" %><%= f.text_field :first_name_kana %></td>
+     </tr>
+     <tr>
+       <td><%= f.label :email, "メールアドレス" %></td>
+       <td colspan="2"><%= f.email_field :email, autocomplete: "email" %></td>
+     </tr>
+     <tr>
+       <td><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+       <td colspan="2"><%= f.text_field :postal_code %></td>
+     </tr>
+     <tr>
+       <td><%= f.label :address, "住所" %></td>
+       <td colspan="2"><%= f.text_field :address %></td>
+     </tr>
+     <tr>
+       <td><%= f.label :telephone_number, "電話番号(ハイフンなし)" %></td>
+       <td colspan="2"><%= f.text_field :telephone_number %></td>
+     </tr>
+     <tr>
+       <td><%= f.label :password, "パスワード" %></td>
+       <td colspan="2">
+         <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 文字以上)</em>
+         <% end %>
+         <%= f.password_field :password, autocomplete: "new-password" %>
+       </td>
+     </tr>
+     <tr>
+       <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
+       <td colspan="2"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+     </tr>
+     <tr>
+       <td></td>
+       <td colspan="2"><%= f.submit "新規登録", class: "btn btn-success" %></td>
+     </tr>
+   </tbody>
+ </table>
+  
 <% end %>
 
 <h4 class="bg-light col-md-3 text-center">既に登録済みの方</h4>
 <p class="offset-md-1"><%= render "public/shared/links" %>からログインしてください。</p>
 </div>
+ </div>
 </main>

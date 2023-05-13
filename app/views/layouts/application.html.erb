@@ -15,6 +15,7 @@
         <div class="container">
           <ul class="navbar-nav ml-auto">
     <% if customer_signed_in? %>
+    ようこそ、<%= current_customer.last_name %>さん！
       <li class="mr-3">
         <%= link_to "マイページ", customers_show_path, class: "btn btn-outline-secondary" %>
       </li>
@@ -33,6 +34,9 @@
      </li>
      <li class="mr-3">
        <%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-secondary" %>
+     </li>
+     <li class="mr-3">
+       <%= link_to "注文履歴一覧", admin_root_path, class: "btn btn-outline-secondary" %>
      </li>
      <li class="mr-3">
        <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-outline-secondary" %>
