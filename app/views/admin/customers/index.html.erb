@@ -5,6 +5,7 @@
       <th>会員ID</th>
       <th>氏名</th>
       <th>メールアドレス</th>
+      <th>ステータス</th>
     </tr>
     <% @customers.each do |customer| %>
     <tr>
@@ -15,6 +16,13 @@
         <% end %>
         </td>
       <td><%= customer.email %></td>
+      <td>
+        <% if customer.is_deleted == false %>
+         <p class="text-success"><%= "有効" %></p>
+        <% else %>
+         <p class="text-muted"><%= "退会" %></p>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>
